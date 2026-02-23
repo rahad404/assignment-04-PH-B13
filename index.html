@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>Job Application Tracker</h1>
+        <h1 class="my-4">Job Application Tracker</h1>
 
         <section id="stat">
             <div class="stat-card">
@@ -24,47 +24,46 @@
             <div class="stat-card">
                 <div id="interview" class="stat-element">
                     <p class="text-[14px]">Interview</p>
-                    <p class="text-[24px] font-bold">0</p>
+                    <p class="text-[24px] text-success font-bold">0</p>
                 </div>
             </div>
             <div class="stat-card">
                 <div id="rejected" class="stat-element">
                     <p class="text-[14px]">Rejected</p>
-                    <p class="text-[24px] font-bold">0</p>
+                    <p class="text-[24px] text-error font-bold">0</p>
                 </div>
             </div>
         </section>
 
-        <hr style="margin: 30px 0">
+        <hr style="margin: 30px 0; border: 2px solid rgb(223, 223, 223);">
     </header>
 
     <main>
-        <p class="text-cyan-500">hello</p>
         <section>
-            <div>
-                <p>Available Jobs</p>
-                <p><span class="total-number">8</span> jobs</p>
+            <div class="flex justify-between ">
+                <p class="text-[22px] text-[#002C5C] font-bold">Available Jobs</p>
+                <p class="text-gray-600"><span class="total-number">8</span> jobs</p>
             </div>
-            <div>
-                <button class="btn">All</button>
-                <button class="btn">Interview</button>
-                <button class="btn">Rejected</button>
+            <div class="flex gap-4 mt-4">
+                <button class="btn w-20">All</button>
+                <button class="btn w-20">Interview</button>
+                <button class="btn w-20">Rejected</button>
             </div>
         </section>
 
-        <section id="all-cards">
+        <section id="all-cards" class="mt-4 flex flex-col gap-4">
             <!-- CARD 1 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">Brain Station 23</h2>
-                        <p class="text-xl font-semibold mt-1">Backend Developer (Node.js)</p>
+                        <p class="text-xl text-gray-500 mt-1">Backend Developer (Node.js)</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Full-time • ৳70,000 – ৳120,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Develop scalable REST APIs and microservices using Node.js and PostgreSQL.
                         </p>
@@ -83,17 +82,17 @@
 
 
             <!-- CARD 2 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">Pathao</h2>
-                        <p class="text-xl font-semibold mt-1">Flutter Developer</p>
+                        <p class="text-xl text-gray-500 mt-1">Flutter Developer</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Hybrid • ৳80,000 – ৳140,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Build high-performance cross-platform apps used by millions of users.
                         </p>
@@ -111,17 +110,17 @@
 
 
             <!-- CARD 3 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">bKash</h2>
-                        <p class="text-xl font-semibold mt-1">Java Spring Boot Engineer</p>
+                        <p class="text-xl text-gray-500 mt-1">Java Spring Boot Engineer</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • On-site • ৳90,000 – ৳160,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Work on secure financial systems and enterprise-grade microservices.
                         </p>
@@ -139,17 +138,17 @@
 
 
             <!-- CARD 4 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">Tiger IT</h2>
-                        <p class="text-xl font-semibold mt-1">DevOps Engineer</p>
+                        <p class="text-xl text-gray-500 mt-1">DevOps Engineer</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Full-time • ৳85,000 – ৳150,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Manage CI/CD pipelines, Docker containers, and AWS infrastructure.
                         </p>
@@ -167,17 +166,17 @@
 
 
             <!-- CARD 5 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">Enosis Solutions</h2>
-                        <p class="text-xl font-semibold mt-1">Frontend Developer (React)</p>
+                        <p class="text-xl text-gray-500 mt-1">Frontend Developer (React)</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Hybrid • ৳60,000 – ৳110,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Build modern UI systems using React, Tailwind, and REST integration.
                         </p>
@@ -195,17 +194,17 @@
 
 
             <!-- CARD 6 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">DataSoft Systems</h2>
-                        <p class="text-xl font-semibold mt-1">QA Automation Engineer</p>
+                        <p class="text-xl text-gray-500 mt-1">QA Automation Engineer</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • On-site • ৳50,000 – ৳90,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Create automated test pipelines using Selenium and CI workflows.
                         </p>
@@ -223,17 +222,17 @@
 
 
             <!-- CARD 7 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">Chaldal</h2>
-                        <p class="text-xl font-semibold mt-1">Full Stack Developer (MERN)</p>
+                        <p class="text-xl text-gray-500 mt-1">Full Stack Developer (MERN)</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Hybrid • ৳75,000 – ৳130,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Develop scalable ecommerce platforms using MongoDB, Express, React & Node.
                         </p>
@@ -251,17 +250,17 @@
 
 
             <!-- CARD 8 -->
-            <div class="card flex-row justify-between border p-8">
+            <div class="card flex-row justify-between p-8">
                 <div class="flex flex-col gap-4">
                     <div>
                         <h2 class="card-title text-2xl">SSL Wireless</h2>
-                        <p class="text-xl font-semibold mt-1">Cyber Security Analyst</p>
+                        <p class="text-xl text-gray-500 mt-1">Cyber Security Analyst</p>
                     </div>
 
                     <p class="text-base-content/50">Dhaka • Full-time • ৳95,000 – ৳180,000</p>
 
                     <div>
-                        <span class="badge badge-outline px-4 py-3 font-medium">NOT APPLIED</span>
+                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
                         <p class="mt-2 text-base leading-relaxed">
                             Monitor security threats, perform penetration testing, and risk analysis.
                         </p>

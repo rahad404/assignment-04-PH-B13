@@ -1,3 +1,7 @@
+html{
+    background-color: #E8F4F8;
+}
+
 body{
     max-width: 1110px;
     margin: 50px auto;
@@ -22,4 +26,15 @@ h1{
     flex: 1 1 0;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+}
+
+.card{
+    background-color: #FFFFFF ;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn{
+    background-color: #FFFFFF ;
 }
