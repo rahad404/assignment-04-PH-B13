@@ -21,6 +21,19 @@ function changeButtonColor(activeBtn){
     activeBtn.classList.add('btn-primary');
 }
 
+// add event listener to buttons
+allTabBtn.addEventListener('click', function(){
+    changeButtonColor(allTabBtn);
+});
+
+interviewTabBtn.addEventListener('click', function(){
+    changeButtonColor(interviewTabBtn);
+});
+
+rejectTabBtn.addEventListener('click', function(){
+    changeButtonColor(rejectTabBtn);
+});
+
 // set stat card total number  
 const allCards = document.getElementById('all-cards');
 
