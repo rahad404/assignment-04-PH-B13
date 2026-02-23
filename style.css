@@ -35,6 +35,27 @@ h1{
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-.btn{
-    background-color: #FFFFFF ;
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: x-large;
+    }
+
+    #stat {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

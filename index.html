@@ -16,21 +16,21 @@
 
         <section id="stat">
             <div class="stat-card">
-                <div id="total" class="stat-element">
+                <div class="stat-element">
                     <p class="text-[14px]">Total</p>
-                    <p class="total-number text-[24px] font-bold">8</p>
+                    <p id="total" class="total-number text-[24px] font-bold">0</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div id="interview" class="stat-element">
+                <div class="stat-element">
                     <p class="text-[14px]">Interview</p>
-                    <p class="text-[24px] text-success font-bold">0</p>
+                    <p id="interview" class="text-[24px] text-success font-bold">0</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div id="rejected" class="stat-element">
+                <div class="stat-element">
                     <p class="text-[14px]">Rejected</p>
-                    <p class="text-[24px] text-error font-bold">0</p>
+                    <p id="rejected" class="text-[24px] text-error font-bold">0</p>
                 </div>
             </div>
         </section>
@@ -42,12 +42,12 @@
         <section>
             <div class="flex justify-between ">
                 <p class="text-[22px] text-[#002C5C] font-bold">Available Jobs</p>
-                <p class="text-gray-600"><span class="total-number">8</span> jobs</p>
+                <p class="text-gray-600"><span id="total-number">0</span> jobs</p>
             </div>
             <div class="flex gap-4 mt-4">
-                <button class="btn w-20">All</button>
-                <button class="btn w-20">Interview</button>
-                <button class="btn w-20">Rejected</button>
+                <button id="all-tab-btn" class="btn btn-primary w-20">All</button>
+                <button id="interview-tab-btn" class="btn w-20">Interview</button>
+                <button id="reject-tab-btn" class="btn w-20">Rejected</button>
             </div>
         </section>
 
@@ -279,6 +279,7 @@
 
     </main>
 
+    <script src="./script.js"></script>
 </body>
 
 </html>
