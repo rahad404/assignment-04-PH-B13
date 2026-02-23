@@ -85,6 +85,7 @@ mainContainer.addEventListener('click', function(event){
         parentCard.querySelector('.badge').innerText = 'INTERVIEW';
     
         if(!jobExist){
+            cardInfo.status = 'INTERVIEW';
             interviewList.push(cardInfo);
         }
     
@@ -94,23 +95,21 @@ mainContainer.addEventListener('click', function(event){
 
 function renderInterviewCards(){
     filteredSection.innerHTML = '';
-    for(let interciewCard of interviewList){
+    for(let interviewCard of interviewList){
         let div = document.createElement('div');
         div.className = 'card flex-row justify-between p-8'
         div.innerHTML= `
             <div class="flex flex-col gap-4">
                 <div>
-                    <h2 class="company-name card-title text-2xl">bKash</h2>
-                    <p class="position text-xl text-gray-500 mt-1">Java Spring Boot Engineer</p>
+                    <h2 class="company-name card-title text-2xl">${interviewCard.companyName}</h2>
+                    <p class="position text-xl text-gray-500 mt-1">${interviewCard.position}</p>
                 </div>
 
-                <p class="info text-base-content/50">Dhaka • On-site • ৳90,000 – ৳160,000</p>
+                <p class="info text-base-content/50">${interviewCard.info}</p>
 
                 <div>
-                    <span class="badge  bg-gray-200 px-4 py-3 font-medium">NOT APPLIED</span>
-                    <p class="description mt-2 text-base leading-relaxed">
-                        Work on secure financial systems and enterprise-grade microservices.
-                    </p>
+                    <span class="badge  bg-gray-200 px-4 py-3 font-medium">${interviewCard.status}</span>
+                    <p class="description mt-2 text-base leading-relaxed">${interviewCard.description}</p>
                 </div>
 
                 <div class="card-actions gap-3">
