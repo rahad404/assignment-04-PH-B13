@@ -204,6 +204,34 @@ mainContainer.addEventListener('click', function(event){
         if(currentStatus === 'interview') renderInterviewCards();
         if(currentStatus === 'rejected') renderRejectedCards();
     }
+    else if(event.target.closest('.delete-btn')){
+        const parentCard = event.target.closest('.card');
+        const companyName = parentCard.querySelector('.company-name').innerText;
+        
+        // Remove from all lists
+        allCardsList = allCardsList.filter(card => card.companyName !== companyName);
+        interviewList = interviewList.filter(job => job.companyName !== companyName);
+        rejectedList = rejectedList.filter(job => job.companyName !== companyName);
+        
+        // Remove from DOM
+        parentCard.remove();
+        
+        // remove from All tab
+        const allCardDivs = allCards.querySelectorAll('.card');
+        for(let card of allCardDivs){
+            const nameElement = card.querySelector('.company-name');
+            if(nameElement && nameElement.innerText === companyName){
+                card.remove();
+                break;
+            }
+        }
+        
+        calculateCount();
+        
+        // Re-render current active tab
+        if(currentStatus === 'interview') renderInterviewCards();
+        if(currentStatus === 'rejected') renderRejectedCards();
+    }
 });
 
 ///------------------------------------{ render cards }-------------------------
@@ -246,7 +274,7 @@ function renderInterviewCards(){
                         <button class="btn-rejected btn btn-outline btn-error px-6">REJECTED</button>
                     </div>
                 </div>
-                <button class="btn btn-circle">
+                <button class="btn btn-circle delete-btn">
                     <i class="fa-regular fa-trash-can"></i>
                 </button>
             `
@@ -294,7 +322,7 @@ function renderRejectedCards(){
                         <button class="btn-rejected btn btn-outline btn-error px-6">REJECTED</button>
                     </div>
                 </div>
-                <button class="btn btn-circle">
+                <button class="btn btn-circle delete-btn">
                     <i class="fa-regular fa-trash-can"></i>
                 </button>
             `;
