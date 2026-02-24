@@ -1,6 +1,7 @@
 // list for interview and rejected cards
 let interviewList = [];
 let rejectedList = [];
+let allCardsList = [];
 let currentStatus = 'all';
 
 // cards
@@ -54,6 +55,7 @@ rejectTabBtn.addEventListener('click', function(){
     renderRejectedCards();
 });
 
+//----------------{ number count in card }------------------
 // set stat card total number  
 function calculateCount(){
     let x = allCards.children.length;
@@ -65,9 +67,53 @@ function calculateCount(){
 }
 calculateCount();
 
+//-----------------------{ mak change in all section even if toggle in interview/rejected }---------------------------------------
+// function to list all cards in the beginning and store in allCardsList
+function listAllCards(){
+    let x = allCards.children;
+    console.log(x);
+    for(let card of x){
+        let companyName = card.querySelector('.company-name').innerText;
+        let position = card.querySelector('.position').innerText;
+        let info = card.querySelector('.info').innerText;
+        let status = card.querySelector('.badge').innerText;
+        let description = card.querySelector('.description').innerText;
+
+        const cardInfo = {
+            companyName,
+            position,
+            info,
+            status,
+            description
+        }
+
+        allCardsList.push(cardInfo);
+    }
+}  
+listAllCards();
+
+// Function to update badge in allCardsList and All tab view
+function updateAllTabBadge(companyName, newStatus){
+    const cardInAll = allCardsList.find(card => card.companyName === companyName);
+    if(cardInAll){
+        cardInAll.status = newStatus;
+    }
+    
+    // Always update badge in All tab (whether visible or hidden)
+    const allCardDivs = allCards.querySelectorAll('.card');
+    for(let div of allCardDivs){
+        const nameElement = div.querySelector('.company-name');
+        if(nameElement && nameElement.innerText === companyName){
+            div.querySelector('.badge').innerText = newStatus;
+            break;
+        }
+    }
+}
+
 // event delegation for cards
 let mainContainer = document.querySelector('main');
 let filteredSection = document.getElementById('filtered-section');
+
 
 // main functionality for interview and rejected button
 mainContainer.addEventListener('click', function(event){
@@ -103,6 +149,9 @@ mainContainer.addEventListener('click', function(event){
         if(jobInRejected){
             rejectedList = rejectedList.filter(job => job.companyName !== cardInfo.companyName);
         }
+
+        // Update All tab badge
+        updateAllTabBadge(companyName, 'INTERVIEW');
 
         calculateCount();
         
@@ -141,6 +190,9 @@ mainContainer.addEventListener('click', function(event){
             interviewList = interviewList.filter(job => job.companyName !== cardInfo.companyName);
         }
 
+        // Update All tab badge
+        updateAllTabBadge(companyName, 'REJECTED');
+
         calculateCount();
         
         // Re-render current active tab to show latest data
@@ -148,6 +200,7 @@ mainContainer.addEventListener('click', function(event){
         if(currentStatus === 'rejected') renderRejectedCards();
     }
 });
+
 
 // render interciew card function 
 function renderInterviewCards(){
@@ -197,6 +250,7 @@ function renderInterviewCards(){
     }
 }
 
+
 // render rejected card function 
 function renderRejectedCards(){
     filteredSection.innerHTML = '';
@@ -243,5 +297,68 @@ function renderRejectedCards(){
             filteredSection.appendChild(div);
         }
     }
-
 }
+
+
+// render all cards function
+function renderAllCards(){
+
+    allCards.innerHTML = '';
+    for(let interviewCard of interviewList){
+        let div = document.createElement('div');
+        div.className = 'card flex-row justify-between p-8 mt-4'
+        div.innerHTML= `
+            <div class="flex flex-col gap-4">
+                <div>
+                    <h2 class="company-name card-title text-2xl">${interviewCard.companyName}</h2>
+                    <p class="position text-xl text-gray-500 mt-1">${interviewCard.position}</p>
+                </div>
+
+                <p class="info text-base-content/50">${interviewCard.info}</p>
+
+                <div>
+                    <span class="badge  bg-gray-200 px-4 py-3 font-medium">${interviewCard.status}</span>
+                    <p class="description mt-2 text-base leading-relaxed">${interviewCard.description}</p>
+                </div>
+
+                <div class="card-actions gap-3">
+                    <button class="btn-interview btn btn-outline btn-success px-6">INTERVIEW</button>
+                    <button class="btn-rejected btn btn-outline btn-error px-6">REJECTED</button>
+                </div>
+            </div>
+            <button class="btn btn-circle">
+                <i class="fa-regular fa-trash-can"></i>
+            </button>
+        `
+        allCards.appendChild(div);
+    }
+
+    for(let rejectedCard of rejectedList){
+        let div = document.createElement('div');
+        div.className = 'card flex-row justify-between p-8 mt-4'
+        div.innerHTML= `
+            <div class="flex flex-col gap-4">
+                <div>
+                    <h2 class="company-name card-title text-2xl">${rejectedCard.companyName}</h2>
+                    <p class="position text-xl text-gray-500 mt-1">${rejectedCard.position}</p>
+                </div>
+
+                <p class="info text-base-content/50">${rejectedCard.info}</p>
+
+                <div>
+                    <span class="badge  bg-gray-200 px-4 py-3 font-medium">${rejectedCard.status}</span>
+                    <p class="description mt-2 text-base leading-relaxed">${rejectedCard.description}</p>
+                </div>
+
+                <div class="card-actions gap-3">
+                    <button class="btn-interview btn btn-outline btn-success px-6">INTERVIEW</button>
+                    <button class="btn-rejected btn btn-outline btn-error px-6">REJECTED</button>
+                </div>
+            </div>
+            <button class="btn btn-circle">
+                <i class="fa-regular fa-trash-can"></i>
+            </button>
+        `
+        allCards.appendChild(div);
+    }
+}   
