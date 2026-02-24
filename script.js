@@ -36,6 +36,11 @@ allTabBtn.addEventListener('click', function(){
 
     filteredSection.classList.add('hidden');
     allCards.classList.remove('hidden');
+    if(allCards.children.length === 0){
+            renderInterviewCards();
+            renderRejectedCards();
+            filteredSection.classList.remove('hidden');
+    };
 });
 
 // interview tab button 
