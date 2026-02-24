@@ -215,7 +215,7 @@ function renderInterviewCards(){
         div.className = 'card flex-row justify-center p-8 mt-4'
         div.innerHTML= `
             <div class="flex flex-col items-center justify-center text-center py-16 px-6 bg-base-200 rounded-2xl shadow-sm">
-                <img src="./B13-A4-PH-Job-Tracker/jobs.png" alt="No jobs available" class="w-40 opacity-80 mb-6">
+                <img src="./img/jobs.png" alt="No jobs available" class="w-40 opacity-80 mb-6">
                 <h2 class="text-2xl font-bold text-base-content">No jobs available</h2>
                 <p class="text-base-content/60 mt-2 max-w-md">Check back soon for new job opportunities.</p>
             </div>
@@ -263,7 +263,7 @@ function renderRejectedCards(){
         div.className = 'card flex-row justify-center p-8 mt-4'
         div.innerHTML= `
             <div class="flex flex-col items-center justify-center text-center py-16 px-6 bg-base-200 rounded-2xl shadow-sm">
-                <img src="./B13-A4-PH-Job-Tracker/jobs.png" alt="No jobs available" class="w-40 opacity-80 mb-6">
+                <img src="./img/jobs.png" alt="No jobs available" class="w-40 opacity-80 mb-6">
                 <h2 class="text-2xl font-bold text-base-content">No jobs available</h2>
                 <p class="text-base-content/60 mt-2 max-w-md">Check back soon for new job opportunities.</p>
             </div>
