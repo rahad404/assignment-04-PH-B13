@@ -228,16 +228,9 @@ mainContainer.addEventListener('click', function(event){
         
         // Show banner if All tab is empty
         if(allCards.children.length === 0){
-            let div = document.createElement('div');
-            div.className = 'card flex-row justify-center p-8 mt-4'
-            div.innerHTML= `
-                <div class="flex flex-col items-center justify-center text-center py-16 px-6 bg-base-200 rounded-2xl shadow-sm">
-                    <img src="./img/jobs.png" alt="No jobs available" class="w-40 opacity-80 mb-6">
-                    <h2 class="text-2xl font-bold text-base-content">No jobs available</h2>
-                    <p class="text-base-content/60 mt-2 max-w-md">Check back soon for new job opportunities.</p>
-                </div>
-            `;
-            allCards.appendChild(div);
+            renderInterviewCards();
+            renderRejectedCards();
+            filteredSection.classList.remove('hidden');
         }
         
         calculateCount();
