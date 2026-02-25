@@ -6,7 +6,8 @@ let currentStatus = 'all';
 
 // cards
 let total = document.getElementById('total');
-let total2 = document.getElementById('total-number');
+let totalJob = document.getElementById('total-job');
+let tabJob = document.getElementById('tab-job');
 let interview = document.getElementById('interview');
 let rejected = document.getElementById('rejected');
 
@@ -36,6 +37,9 @@ allTabBtn.addEventListener('click', function(){
 
     filteredSection.classList.add('hidden');
     allCards.classList.remove('hidden');
+
+    tabJob.innerText = '';
+
     if(allCards.children.length === 0){
             renderInterviewCards();
             renderRejectedCards();
@@ -48,6 +52,8 @@ interviewTabBtn.addEventListener('click', function(){
     changeButtonColor(interviewTabBtn);
     currentStatus = 'interview';
 
+    tabJob.innerText = interviewList.length +' of ';
+
     allCards.classList.add('hidden');
     filteredSection.classList.remove('hidden');
     renderInterviewCards();
@@ -57,6 +63,8 @@ interviewTabBtn.addEventListener('click', function(){
 rejectTabBtn.addEventListener('click', function(){
     changeButtonColor(rejectTabBtn);
     currentStatus = 'rejected';
+
+    tabJob.innerText = rejectedList.length +' of ';
 
     allCards.classList.add('hidden');
     filteredSection.classList.remove('hidden');
@@ -68,7 +76,7 @@ rejectTabBtn.addEventListener('click', function(){
 function calculateCount(){
     let x = allCards.children.length;
     total.innerText = x;
-    total2.innerText = x;
+    totalJob.innerText = x;
 
     interview.innerText = interviewList.length;
     rejected.innerText = rejectedList.length;
