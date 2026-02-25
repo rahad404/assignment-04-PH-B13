@@ -121,6 +121,14 @@ function updateAllTabBadge(companyName, newStatus){
         const nameElement = div.querySelector('.company-name');
         if(nameElement && nameElement.innerText === companyName){
             div.querySelector('.badge').innerText = newStatus;
+            if(newStatus === 'INTERVIEW'){
+                div.querySelector('.badge').className = 'badge text-green-500 bg-green-200 px-4 py-3 font-medium border-2 border-green-500';
+                div.className = 'card flex-row justify-between p-8 mt-4 border-l-4 border-green-500';
+            }
+            else if(newStatus === 'REJECTED'){
+                div.querySelector('.badge').className = 'badge text-red-500 bg-red-200 px-4 py-3 font-medium border-2 border-red-500';
+                div.className = 'card flex-row justify-between p-8 mt-4 border-l-4 border-red-500';
+            }
             break;
         }
     }
@@ -139,6 +147,8 @@ mainContainer.addEventListener('click', function(event){
 
     if(event.target.classList.contains('btn-interview')){
         const parentCard = event.target.parentNode.parentNode;
+        const grandParentCard = parentCard.parentNode;
+        const badge = parentCard.querySelector('.badge');
         const companyName = parentCard.querySelector('.company-name').innerText;
         const position = parentCard.querySelector('.position').innerText;
         const info = parentCard.querySelector('.info').innerText;
@@ -156,8 +166,9 @@ mainContainer.addEventListener('click', function(event){
         const jobExist = interviewList.find(job=> job.companyName === cardInfo.companyName);
         const jobInRejected = rejectedList.find(job=> job.companyName === cardInfo.companyName);
         
-        parentCard.querySelector('.badge').innerText = 'INTERVIEW';
-    
+        grandParentCard.className ='card flex-row justify-between p-8 mt-4 border-l-4 border-green-500';
+        badge.className ='badge text-green-500 bg-green-200 px-4 py-3 font-medium border-2 border-green-500';
+
         if(!jobExist){
             cardInfo.status = 'INTERVIEW';
             interviewList.push(cardInfo);
@@ -179,6 +190,8 @@ mainContainer.addEventListener('click', function(event){
     }
     else if(event.target.classList.contains('btn-rejected')){
         const parentCard = event.target.parentNode.parentNode;
+        const grandParentCard = parentCard.parentNode;
+        const badge = parentCard.querySelector('.badge');
         const companyName = parentCard.querySelector('.company-name').innerText;
         const position = parentCard.querySelector('.position').innerText;
         const info = parentCard.querySelector('.info').innerText;
@@ -196,7 +209,8 @@ mainContainer.addEventListener('click', function(event){
         const jobExist = rejectedList.find(job=> job.companyName === cardInfo.companyName);
         const jobInInterview = interviewList.find(job=> job.companyName === cardInfo.companyName);
         
-        parentCard.querySelector('.badge').innerText = 'REJECTED';
+        grandParentCard.className = 'card flex-row justify-between p-8 mt-4 border-l-4 border-red-500';
+        badge.className = 'badge text-red-500 bg-red-200 px-4 py-3 font-medium border-2 border-red-500';
     
         if(!jobExist){
             cardInfo.status = 'REJECTED';
@@ -274,7 +288,7 @@ function renderInterviewCards(){
         filteredSection.innerHTML = '';
         for(let interviewCard of interviewList){
             let div = document.createElement('div');
-            div.className = 'card flex-row justify-between p-8 mt-4'
+            div.className = 'card flex-row justify-between p-8 mt-4 border-l-4 border-green-500'
             div.innerHTML= `
                 <div class="flex flex-col gap-4">
                     <div>
@@ -285,7 +299,9 @@ function renderInterviewCards(){
                     <p class="info text-base-content/50">${interviewCard.info}</p>
     
                     <div>
-                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">${interviewCard.status}</span>
+                        <span class="badge text-green-500 bg-green-200 px-4 py-3 font-medium border-2 border-green-500">
+                            ${interviewCard.status}
+                        </span>
                         <p class="description mt-2 text-base leading-relaxed">${interviewCard.description}</p>
                     </div>
     
@@ -324,7 +340,7 @@ function renderRejectedCards(){
         filteredSection.innerHTML = '';
         for(let rejectedCard of rejectedList){
             let div = document.createElement('div');
-            div.className = 'card flex-row justify-between p-8 mt-4'
+            div.className = 'card flex-row justify-between p-8 mt-4 border-l-4 border-red-500'
             div.innerHTML= `
                 <div class="flex flex-col gap-4">
                     <div>
@@ -335,7 +351,9 @@ function renderRejectedCards(){
                     <p class="info text-base-content/50">${rejectedCard.info}</p>
     
                     <div>
-                        <span class="badge  bg-gray-200 px-4 py-3 font-medium">${rejectedCard.status}</span>
+                        <span class="badge text-red-500 bg-red-200 px-4 py-3 font-medium border-2 border-red-500">
+                            ${rejectedCard.status}
+                        </span>
                         <p class="description mt-2 text-base leading-relaxed">${rejectedCard.description}</p>
                     </div>
     
