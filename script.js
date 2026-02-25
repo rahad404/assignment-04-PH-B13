@@ -301,6 +301,8 @@ function renderInterviewCards(){
             filteredSection.appendChild(div);
         }
     }
+    tabJob.innerText = interviewList.length +' of ';
+    
 }
 
 // render rejected card function 
@@ -349,4 +351,5 @@ function renderRejectedCards(){
             filteredSection.appendChild(div);
         }
     }
+    tabJob.innerText = rejectedList.length +' of ';
 }
